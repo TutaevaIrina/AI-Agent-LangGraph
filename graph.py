@@ -1,4 +1,6 @@
 import json
+import os
+from langchain_groq import ChatGroq
 from typing import TypedDict, List
 from dotenv import load_dotenv
 from langgraph.graph import StateGraph, START, END
@@ -8,9 +10,12 @@ from tools import search_arxiv, evaluate_source
 
 load_dotenv()
 
-llm = ChatGoogleGenerativeAI(
-    model="gemini-2.5-flash-lite",
-    temperature=0
+
+
+llm = ChatGroq(
+    model="llama-3.3-70b-versatile",
+    temperature=0,
+    api_key=os.getenv("GROQ_API_KEY")
 )
 
 
