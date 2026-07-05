@@ -442,7 +442,7 @@ scientific-agent/
 ```bash
 git clone https://github.com/TutaevaIrina/AI-Agent-LangGraph.git
 
-cd scientific-agent
+cd AI-Agent-LangGraph
 ```
 
 ---
