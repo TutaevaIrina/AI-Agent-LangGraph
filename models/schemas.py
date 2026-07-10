@@ -18,10 +18,9 @@ class SearchQueries(BaseModel):
 
 class PaperScore(BaseModel):
     title: str
-    relevance_score: int = Field(description="Integer from 0 to 100")
-    quality_score: int = Field(description="Integer from 0 to 100")
-    recency_score: int = Field(description="Integer from 0 to 100")
-    final_score: int = Field(description="Weighted final score from 0 to 100")
+    relevance_score: int = Field(ge=0, le=100)
+    quality_score: int = Field(ge=0, le=100)
+    recency_score: int = Field(ge=0, le=100)
     reason: str
 
 
