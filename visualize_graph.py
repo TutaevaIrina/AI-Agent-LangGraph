@@ -9,6 +9,7 @@ python visualize_graph.py
 from pathlib import Path
 
 from graph.builder import build_graph
+from langchain_core.runnables.graph_mermaid import draw_mermaid_png
 
 
 def main():
@@ -22,7 +23,10 @@ def main():
 
     graph = app.get_graph()
 
-    png = graph.draw_mermaid_png()
+    mermaid_syntax = graph.draw_mermaid()
+    mermaid_syntax = mermaid_syntax.replace("graph TD;", "graph LR;", 1)
+
+    png = draw_mermaid_png(mermaid_syntax)
 
     png_path.write_bytes(png)
 
